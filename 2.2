@@ -1,0 +1,44 @@
+class SecondClass():
+# pro: has no default length limit, the problem with endless cycle is solved
+# con: user has to call functions manually to add and/or delete some value 
+
+  def __init__(self):
+
+    self.mylist2 = list()
+
+  # methods
+  def check_my_list(self):
+    print(self.mylist2)
+
+  def add(self, value):
+    print(f'{value} was added')
+    return self.mylist2.insert(0, value)
+
+  def delete(self):
+    print(f'the oldest value {self.mylist2[-1]} was deleted')
+    return self.mylist2.pop(-1)
+
+
+
+mylist2 = SecondClass()
+
+mylist2.add(7)
+mylist2.check_my_list()
+
+mylist2.add(16)
+mylist2.check_my_list()
+
+mylist2.add(-3)
+mylist2.check_my_list()
+
+next = mylist2.delete()
+mylist2.check_my_list()
+
+next = mylist2.delete()
+mylist2.check_my_list()
+
+mylist2.add(100)
+mylist2.check_my_list()
+
+next = mylist2.delete()
+mylist2.check_my_list()

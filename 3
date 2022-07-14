@@ -1,0 +1,23 @@
+import random
+#Generate 500000 random numbers between 0 and 3000000
+randomlist = random.sample(range(0, 3000000), 9999)
+
+def sort(randomlist):
+
+  results=[]
+  
+  # in case we got an empty list
+  if randomlist == []:
+    return results
+  
+  # whithout this condition below .sort() works slower, I also checked for numbers <10001, 20000, 50000 and higher
+  elif len(randomlist) < 10000: 
+    pivot = randomlist[0]
+    lesser = sort([x for x in randomlist[1:] if x < pivot])
+    greater = sort([x for x in randomlist[1:] if x >= pivot])
+    return lesser + [pivot] + greater
+  
+  # on a big data .sort() works faster that any manually written function I could imagine
+  else:
+    return randomlist.sort() 
+result3 = sort(randomlist)

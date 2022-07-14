@@ -1,0 +1,30 @@
+class FirstClass():
+# pro: linear logic
+# con: has endless cycle
+
+  def __init__(self, length):
+    
+    self.length = length 
+    self.mylist = list(length*'N')
+
+  def add(self):
+  
+    self.work = True
+    i = 0
+    
+    while self.work:
+      if i<len(self.mylist):
+        value = input('add a number to a list: ')
+        print(i)
+        self.mylist[i] = value
+        i += 1
+        print(self.mylist)
+        continue
+
+      else:
+        i = i%len(self.mylist)
+        continue
+
+object1 = FirstClass(length=5)
+object1.mylist
+object1.add()
